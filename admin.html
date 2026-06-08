@@ -1,0 +1,524 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Ray Almeida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #111827;
+            color: #F3E7DF;
+        }
+
+        .admin-login {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #111827, #1C2431);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 350px;
+            border: 1px solid rgba(201, 155, 138, 0.3);
+        }
+
+        .login-box img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .login-box h2 {
+            color: #F3E7DF;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #C99B8A;
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border-color: #E1B9AA;
+        }
+
+        .login-box button {
+            background: #C99B8A;
+            color: #111827;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .login-box button:hover {
+            background: #E1B9AA;
+            transform: scale(1.02);
+        }
+
+        .admin-panel {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .admin-panel {
+                padding: 20px;
+            }
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .admin-header h1 {
+            font-size: 1.5rem;
+            color: #C99B8A;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+            transform: scale(1.02);
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(201, 155, 138, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #C99B8A;
+        }
+
+        .card i {
+            font-size: 2rem;
+            color: #C99B8A;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .card p {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #C99B8A;
+        }
+
+        .filtros {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filtros input, .filtros button {
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .filtros input {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid #C99B8A;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filtros input::placeholder {
+            color: rgba(243, 231, 223, 0.6);
+        }
+
+        .filtros button {
+            background: #C99B8A;
+            color: #111827;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .filtros button:hover {
+            background: #E1B9AA;
+            transform: scale(1.02);
+        }
+
+        .tabela-container {
+            overflow-x: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(201, 155, 138, 0.3);
+            color: #F3E7DF;
+        }
+
+        th {
+            color: #C99B8A;
+            font-weight: 600;
+        }
+
+        td button {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        td button:first-child {
+            background: #17a2b8;
+            color: white;
+        }
+
+        td button:last-child {
+            background: #dc3545;
+            color: white;
+        }
+
+        td button:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            th, td {
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+            td button {
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .notificacao {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            z-index: 9999;
+            font-size: 14px;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-login" id="adminLogin">
+        <div class="login-box">
+            <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+            <h2>Painel Administrativo</h2>
+            <input type="password" id="senhaAdmin" placeholder="Digite a senha" autocomplete="off">
+            <button onclick="verificarSenha()">Acessar</button>
+        </div>
+    </div>
+    <div class="admin-panel" id="adminPanel" style="display:none">
+        <div class="admin-header">
+            <h1><i class="fas fa-crown"></i> Ray Almeida - Gestão de Agendamentos</h1>
+            <button onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</button>
+        </div>
+        <div class="dashboard">
+            <div class="card"><i class="fas fa-calendar-check"></i><h3>Total de Agendamentos</h3><p id="totalAgendamentos">0</p></div>
+            <div class="card"><i class="fas fa-calendar-day"></i><h3>Agendamentos Hoje</h3><p id="agendamentosHoje">0</p></div>
+            <div class="card"><i class="fas fa-users"></i><h3>Clientes Cadastrados</h3><p id="totalClientes">0</p></div>
+        </div>
+        <div class="filtros">
+            <input type="text" id="searchCliente" placeholder="🔍 Buscar por nome, telefone ou email..." onkeyup="filtrarTabela()">
+            <input type="date" id="filtroData" onchange="filtrarPorData()">
+            <button onclick="exportarCSV()"><i class="fas fa-file-csv"></i> CSV</button>
+            <button onclick="exportarExcel()"><i class="fas fa-file-excel"></i> Excel</button>
+        </div>
+        <div class="tabela-container">
+            <table id="tabelaAgendamentos">
+                <thead>
+                    <tr><th>Nome</th><th>WhatsApp</th><th>Email</th><th>Serviço</th><th>Data</th><th>Horário</th><th>Ações</th></tr>
+                </thead>
+                <tbody id="agendamentosBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        let agendamentosAtuais = [];
+
+        function verificarSenha() {
+            const senha = document.getElementById('senhaAdmin').value;
+            if(senha === 'ray2025') {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                carregarAgendamentos();
+            } else {
+                alert('❌ Senha incorreta!');
+                document.getElementById('senhaAdmin').value = '';
+            }
+        }
+
+        function logout() {
+            document.getElementById('adminLogin').style.display = 'flex';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('senhaAdmin').value = '';
+        }
+
+        function carregarAgendamentos() {
+            agendamentosAtuais = JSON.parse(localStorage.getItem('agendamentos') || '[]');
+            atualizarDashboard();
+            renderizarTabela(agendamentosAtuais);
+        }
+
+        function atualizarDashboard() {
+            const total = agendamentosAtuais.length;
+            const hoje = new Date().toISOString().split('T')[0];
+            const hojeCount = agendamentosAtuais.filter(a => a.data === hoje).length;
+            const clientesUnicos = [...new Set(agendamentosAtuais.map(a => a.nome))].length;
+            
+            document.getElementById('totalAgendamentos').innerText = total;
+            document.getElementById('agendamentosHoje').innerText = hojeCount;
+            document.getElementById('totalClientes').innerText = clientesUnicos;
+        }
+
+        function renderizarTabela(agendamentos) {
+            const tbody = document.getElementById('agendamentosBody');
+            tbody.innerHTML = '';
+            
+            if(agendamentos.length === 0) {
+                const row = tbody.insertRow();
+                const cell = row.insertCell(0);
+                cell.colSpan = 7;
+                cell.textContent = '📭 Nenhum agendamento encontrado.';
+                cell.style.textAlign = 'center';
+                cell.style.padding = '40px';
+                return;
+            }
+            
+            agendamentos.sort((a, b) => new Date(b.data) - new Date(a.data));
+            
+            agendamentos.forEach(ag => {
+                const row = tbody.insertRow();
+                row.insertCell(0).innerText = ag.nome;
+                row.insertCell(1).innerText = ag.telefone;
+                row.insertCell(2).innerText = ag.email;
+                row.insertCell(3).innerText = ag.servico;
+                row.insertCell(4).innerHTML = `<span style="color:#C99B8A">${formatarData(ag.data)}</span>`;
+                row.insertCell(5).innerText = ag.horario;
+                const actions = row.insertCell(6);
+                actions.innerHTML = `
+                    <button onclick="editarAgendamento(${ag.id})" title="Editar"><i class="fas fa-edit"></i></button>
+                    <button onclick="excluirAgendamento(${ag.id})" title="Excluir"><i class="fas fa-trash"></i></button>
+                `;
+            });
+        }
+
+        function formatarData(dataString) {
+            const [ano, mes, dia] = dataString.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        function filtrarTabela() {
+            const search = document.getElementById('searchCliente').value.toLowerCase().trim();
+            if(search === '') {
+                renderizarTabela(agendamentosAtuais);
+            } else {
+                const filtrados = agendamentosAtuais.filter(ag => 
+                    ag.nome.toLowerCase().includes(search) || 
+                    ag.telefone.includes(search) ||
+                    ag.email.toLowerCase().includes(search)
+                );
+                renderizarTabela(filtrados);
+            }
+        }
+
+        function filtrarPorData() {
+            const data = document.getElementById('filtroData').value;
+            if(data) {
+                const filtrados = agendamentosAtuais.filter(ag => ag.data === data);
+                renderizarTabela(filtrados);
+                document.getElementById('searchCliente').value = '';
+            } else {
+                renderizarTabela(agendamentosAtuais);
+            }
+        }
+
+        function excluirAgendamento(id) {
+            if(confirm('⚠️ Tem certeza que deseja excluir este agendamento?')) {
+                agendamentosAtuais = agendamentosAtuais.filter(ag => ag.id !== id);
+                localStorage.setItem('agendamentos', JSON.stringify(agendamentosAtuais));
+                carregarAgendamentos();
+                mostrarNotificacao('✅ Agendamento excluído com sucesso!');
+            }
+        }
+
+        function editarAgendamento(id) {
+            const ag = agendamentosAtuais.find(a => a.id === id);
+            if(ag) {
+                const novoNome = prompt('✏️ Editar nome:', ag.nome);
+                if(novoNome && novoNome.trim() !== '') {
+                    ag.nome = novoNome.trim();
+                    localStorage.setItem('agendamentos', JSON.stringify(agendamentosAtuais));
+                    carregarAgendamentos();
+                    mostrarNotificacao('✅ Agendamento atualizado!');
+                }
+            }
+        }
+
+        function mostrarNotificacao(mensagem) {
+            const notif = document.createElement('div');
+            notif.textContent = mensagem;
+            notif.className = 'notificacao';
+            document.body.appendChild(notif);
+            setTimeout(() => {
+                notif.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notif.remove(), 300);
+            }, 2500);
+        }
+
+        function exportarCSV() {
+            if(agendamentosAtuais.length === 0) {
+                alert('📭 Nenhum agendamento para exportar.');
+                return;
+            }
+            
+            let csv = "\uFEFFNome,Telefone,Email,Serviço,Data,Horário,Observações\n";
+            agendamentosAtuais.forEach(ag => {
+                csv += `"${ag.nome}","${ag.telefone}","${ag.email}","${ag.servico}","${ag.data}","${ag.horario}","${ag.observacoes || ''}"\n`;
+            });
+            
+            const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.setAttribute('download', `agendamentos_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            mostrarNotificacao('📊 CSV exportado com sucesso!');
+        }
+
+        function exportarExcel() {
+            if(agendamentosAtuais.length === 0) {
+                alert('📭 Nenhum agendamento para exportar.');
+                return;
+            }
+            
+            let html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Agendamentos</title><style>th{background:#C99B8A;color:#111827;padding:10px}td{padding:8px;border:1px solid #ddd}table{border-collapse:collapse;width:100%}</style></head><body>
+            <h2>📋 Agendamentos - Esmalteria Ray Almeida</h2>
+            <p>Data de exportação: ${new Date().toLocaleString('pt-BR')}</p>
+            <table border="1"><thead><tr><th>Nome</th><th>Telefone</th><th>Email</th><th>Serviço</th><th>Data</th><th>Horário</th><th>Observações</th></tr></thead><tbody>`;
+            
+            agendamentosAtuais.forEach(ag => {
+                html += `<tr><td>${ag.nome}</td><td>${ag.telefone}</td><td>${ag.email}</td><td>${ag.servico}</td><td>${ag.data}</td><td>${ag.horario}</td><td>${ag.observacoes || ''}</td></tr>`;
+            });
+            
+            html += `</tbody></table><p><strong>Total:</strong> ${agendamentosAtuais.length} agendamentos</p></body></html>`;
+            
+            const blob = new Blob([html], {type: 'application/vnd.ms-excel'});
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.href = url;
+            link.setAttribute('download', `agendamentos_${new Date().toISOString().split('T')[0]}.xls`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            mostrarNotificacao('📊 Excel exportado com sucesso!');
+        }
+
+        document.getElementById('senhaAdmin')?.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') verificarSenha();
+        });
+
+        setInterval(() => {
+            if(document.getElementById('adminPanel').style.display === 'block') {
+                carregarAgendamentos();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
