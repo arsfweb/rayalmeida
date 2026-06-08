@@ -2,34 +2,45 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ray Almeida Nails | High-End Nail Boutique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Esmalteria Ray Almeida | Luxo e Sofisticação em Florianópolis</title>
     
-    <!-- Meta Tags SEO -->
-    <meta name="description" content="Esmalteria Boutique Ray Almeida em Florianópolis. Especialista em unhas de fibra, gel e cuidados de luxo.">
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Esmalteria de luxo comandada por Ray Almeida. Especialista em unhas impecáveis, alongamentos e cuidados premium em Florianópolis. Agende sua experiência.">
+    <meta name="keywords" content="manicure de luxo, unhas de fibra, florianópolis, ray almeida, esmalteria premium, alongamento de unhas, rayalmeidanailss">
+    <meta property="og:title" content="Esmalteria Ray Almeida | Unhas de Luxo">
+    <meta property="og:description" content="Beleza, elegância e perfeição em cada detalhe. Siga @rayalmeidanailss.">
     <meta property="og:image" content="logo.png">
     
-    <!-- Tailwind & Fonts -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@200;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Mais elegante e refinado (Poppins + Cormorant Garamond) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <!-- AOS Animações -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper JS (para galeria mais luxuosa) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#111827',
-                        secondary: '#1C2431',
-                        roseGold: '#C99B8A',
-                        roseGoldLight: '#E1B9AA',
-                        champagne: '#F3E7DF',
+                        deepBlack: '#0A0A0C',
+                        richDark: '#121216',
+                        softGold: '#D9B48B',
+                        antiqueGold: '#C3A07A',
+                        pearlWhite: '#F5F0EB',
+                        dustyRose: '#C59B7A',
                     },
                     fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                        cinzel: ['Cinzel', 'serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'noise-pattern': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
                     }
                 }
             }
@@ -37,373 +48,386 @@
     </script>
 
     <style>
-        body { background-color: #111827; color: #FFFFFF; font-family: 'Montserrat', sans-serif; }
-        
-        .text-rose-gradient {
-            background: linear-gradient(to right, #C99B8A, #F3E7DF, #C99B8A);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 4s linear infinite;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #0A0A0C; 
+            color: #E8E2D9; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
         }
-
-        @keyframes shine { to { background-position: 200% center; } }
-
-        .glass-card {
-            background: rgba(28, 36, 49, 0.4);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(201, 155, 138, 0.15);
-            transition: all 0.5s ease;
+        /* Efeito luxury glow */
+        .glow-text {
+            text-shadow: 0 2px 15px rgba(201, 155, 138, 0.3);
         }
-
-        .glass-card:hover {
-            border-color: rgba(201, 155, 138, 0.5);
-            transform: translateY(-10px);
+        .glass-luxury {
+            background: rgba(18, 18, 22, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(217, 180, 139, 0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
-
+        .border-gold-subtle {
+            border-image: none;
+            border-color: rgba(217, 180, 139, 0.35);
+        }
         .btn-luxury {
-            position: relative;
-            background: linear-gradient(45deg, #C99B8A, #E1B9AA);
-            color: #111827;
-            font-weight: 600;
-            overflow: hidden;
-            transition: all 0.4s ease;
+            background: linear-gradient(135deg, #D9B48B 0%, #B68A60 100%);
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            letter-spacing: 0.15em;
         }
-
-        .btn-luxury::before {
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -10px rgba(217, 180, 139, 0.5);
+            filter: brightness(1.05);
+        }
+        .btn-outline-luxury {
+            border: 1px solid #D9B48B;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-luxury:hover {
+            background: #D9B48B;
+            color: #0A0A0C;
+            border-color: #D9B48B;
+        }
+        .luxury-divider {
+            background: linear-gradient(90deg, transparent, #D9B48B, #C3A07A, #D9B48B, transparent);
+            height: 1px;
+            width: 120px;
+            margin: 0 auto;
+        }
+        .gallery-card-hover {
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .instagram-feed-item {
+            position: relative;
+            overflow: hidden;
+        }
+        .instagram-feed-item::after {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: 0.5s;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 50%, rgba(10,10,12,0.7));
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }
-
-        .btn-luxury:hover::before { left: 100%; }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: #111827; }
-        ::-webkit-scrollbar-thumb { background: #C99B8A; }
+        .instagram-feed-item:hover::after {
+            opacity: 1;
+        }
+        /* scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121216;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D9B48B;
+            border-radius: 10px;
+        }
+        /* partículas suaves */
+        #particles-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[100] bg-primary flex items-center justify-center transition-opacity duration-1000">
-        <img src="logo.png" class="h-20 animate-pulse" alt="Loading...">
-    </div>
-
-    <!-- BOTÃO WHATSAPP -->
-    <a href="https://wa.me/5548988421680?text=Olá,%20vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário." 
-       target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25D366] p-4 rounded-full shadow-2xl hover:scale-110 transition-transform">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <!-- WHATSAPP FLUTUANTE refinado -->
+    <a href="https://wa.me/5548988421680?text=Olá%2C%20gostaria%20de%20vivenciar%20a%20experi%C3%AAncia%20Ray%20Almeida%20e%20agendar%20meu%20hor%C3%A1rio%20premium." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-[100] bg-gradient-to-br from-[#25D366] to-[#128C7E] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group">
+        <i class="fab fa-whatsapp text-3xl group-hover:scale-105 transition"></i>
     </a>
 
-    <!-- HEADER NAV -->
-    <nav class="fixed w-full z-[60] py-6 px-8 lg:px-20 flex justify-between items-center transition-all duration-500" id="navbar">
-        <div class="flex items-center">
-            <img src="logo.png" alt="Ray Almeida" class="h-10 md:h-14">
+    <!-- MENU FIXO refinado -->
+    <nav class="fixed w-full z-50 glass-luxury transition-all duration-300 py-4 px-6 lg:px-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <img src="logo.png" alt="Ray Almeida Logo" class="h-10 md:h-12 object-contain" onerror="this.src='https://placehold.co/120x40?text=RAY'">
         </div>
-        
-        <div class="hidden lg:flex gap-10 items-center text-[10px] tracking-[0.3em] uppercase font-light">
-            <a href="#inicio" class="hover:text-roseGold transition">Início</a>
-            <a href="#sobre" class="hover:text-roseGold transition">Sobre</a>
-            <a href="#servicos" class="hover:text-roseGold transition">Serviços</a>
-            <a href="#galeria" class="hover:text-roseGold transition">Galeria</a>
-            <a href="#agendamento" class="btn-luxury px-8 py-3 rounded-full shadow-lg">Agendar</a>
+        <div class="hidden md:flex gap-10 items-center text-[11px] font-medium tracking-[0.2em] uppercase">
+            <a href="#inicio" class="hover:text-softGold transition-colors duration-300">Início</a>
+            <a href="#sobre" class="hover:text-softGold transition-colors duration-300">Ateliê</a>
+            <a href="#servicos" class="hover:text-softGold transition-colors duration-300">Assinatura</a>
+            <a href="#galeria" class="hover:text-softGold transition-colors duration-300">Portfólio</a>
+            <a href="#agendamento" class="btn-luxury px-6 py-2 rounded-full text-deepBlack font-semibold text-[11px]">Reservar</a>
         </div>
-
-        <button class="lg:hidden text-roseGold" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-            <i class="fas fa-bars-staggered text-2xl"></i>
+        <button class="md:hidden text-softGold focus:outline-none" onclick="toggleMenu()">
+            <i class="fas fa-bars text-2xl"></i>
         </button>
     </nav>
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="fixed inset-0 z-[70] bg-primary hidden flex flex-col items-center justify-center gap-8">
-        <button onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="absolute top-10 right-10 text-roseGold"><i class="fas fa-times text-3xl"></i></button>
-        <a href="#inicio" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="font-serif text-3xl">Início</a>
-        <a href="#sobre" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="font-serif text-3xl">Sobre</a>
-        <a href="#servicos" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="font-serif text-3xl">Serviços</a>
-        <a href="#agendamento" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="btn-luxury px-10 py-4 rounded-full">Agendar</a>
+    <!-- MOBILE MENU LUXURY -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-richDark/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-6 text-2xl font-serif">
+        <button class="absolute top-6 right-6 text-softGold text-3xl" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="#inicio" onclick="toggleMenu()" class="hover:text-softGold transition">Início</a>
+        <a href="#sobre" onclick="toggleMenu()" class="hover:text-softGold transition">Ateliê</a>
+        <a href="#servicos" onclick="toggleMenu()" class="hover:text-softGold transition">Serviços</a>
+        <a href="#galeria" onclick="toggleMenu()" class="hover:text-softGold transition">Galeria</a>
+        <a href="#agendamento" onclick="toggleMenu()" class="btn-luxury px-8 py-3 rounded-full text-deepBlack text-base">Agendar</a>
     </div>
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 bg-[url('imagens/1.jpg')] bg-cover bg-center opacity-20 scale-105 transition-transform duration-[10s]" id="hero-bg"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-primary via-transparent to-primary"></div>
-        
-        <div class="relative z-10 text-center px-4" data-aos="zoom-out" data-aos-duration="2000">
-            <h2 class="font-cinzel text-roseGold tracking-[0.5em] text-xs md:text-sm mb-4">FLORIANÓPOLIS • ESTÉTICA DE LUXO</h2>
-            <h1 class="font-serif text-6xl md:text-8xl mb-6 text-rose-gradient leading-tight">Ray Almeida</h1>
-            <p class="max-w-xl mx-auto font-light text-gray-300 tracking-widest text-sm md:text-base mb-10 leading-relaxed uppercase">
-                Redefinindo o conceito de perfeição em unhas e cuidados exclusivos.
-            </p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="#agendamento" class="btn-luxury px-12 py-5 rounded-full text-xs tracking-widest uppercase">Experiência Premium</a>
+    <!-- HERO SECTION COM PARTÍCULAS E MAIS ELEGÂNCIA -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center text-center px-4 pt-24 overflow-hidden">
+        <div id="particles-bg"></div>
+        <div class="absolute inset-0 bg-noise-pattern opacity-20"></div>
+        <div class="z-10 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1300">
+            <img src="logo.png" alt="Ray Almeida Assinatura" class="mx-auto mb-6 w-44 md:w-56 opacity-90 drop-shadow-xl" onerror="this.src='https://placehold.co/180x80?text=RAY+ALMEIDA'">
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl font-light tracking-wide text-softGold glow-text uppercase">Ray Almeida</h1>
+            <div class="luxury-divider my-6"></div>
+            <p class="text-pearlWhite tracking-[0.25em] uppercase text-xs md:text-sm font-light mb-8">Nail designer · Florianópolis · Alta Joalheria das Mãos</p>
+            <div class="flex flex-col md:flex-row gap-5 justify-center items-center">
+                <a href="#agendamento" class="btn-luxury px-10 py-4 rounded-full text-deepBlack font-semibold uppercase tracking-[0.2em] w-full md:w-auto text-xs transition-all">Experiência Exclusiva</a>
+                <a href="https://wa.me/5548988421680" target="_blank" class="btn-outline-luxury px-10 py-4 rounded-full text-softGold hover:text-deepBlack transition-all duration-500 uppercase tracking-[0.2em] w-full md:w-auto text-xs">WhatsApp Concierge</a>
             </div>
+        </div>
+        <div class="absolute bottom-12 left-0 right-0 flex justify-center gap-4 text-softGold/40 text-xs tracking-widest animate-pulse">
+            <span>✦ LUXURY NAIL ART ✦</span>
         </div>
     </section>
 
-    <!-- SOBRE (BOUTIQUE CONCEPT) -->
-    <section id="sobre" class="py-32 px-6 lg:px-20 relative bg-primary">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div class="relative" data-aos="fade-right">
-                <div class="aspect-[4/5] overflow-hidden rounded-2xl">
-                    <img src="imagens/perfil.jpg" alt="Ray Almeida Studio" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+    <!-- SOBRE NÓS - ATMOSFERA PREMIUM -->
+    <section id="sobre" class="py-28 px-6 lg:px-20 bg-richDark relative">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+            <div data-aos="fade-right" class="relative order-2 md:order-1">
+                <div class="relative z-10">
+                    <img src="imagens/1.jpg" alt="Atendimento de assinatura Ray Almeida" class="rounded-sm shadow-2xl grayscale-[30%] hover:grayscale-0 transition-all duration-1000 w-full object-cover h-[500px]" onerror="this.src='https://placehold.co/600x500?text=Luxury+Care'">
+                    <div class="absolute -bottom-5 -right-5 w-full h-full border border-softGold/40 -z-10 rounded-sm"></div>
                 </div>
-                <div class="absolute -bottom-10 -right-10 bg-secondary p-8 rounded-2xl border border-roseGold/20 hidden md:block glass-card">
-                    <p class="font-serif text-4xl text-roseGold">100%</p>
-                    <p class="text-[10px] tracking-widest uppercase text-gray-400">Satisfação Premium</p>
-                </div>
+                <div class="absolute top-10 -left-6 w-24 h-24 bg-softGold/5 blur-3xl rounded-full"></div>
             </div>
-            <div data-aos="fade-left">
-                <span class="text-roseGold tracking-[0.3em] text-xs uppercase">Conceito Boutique</span>
-                <h2 class="font-serif text-5xl mt-4 mb-8 leading-tight">Onde a arte encontra a <span class="italic text-roseGold">sofisticação.</span></h2>
-                <p class="text-gray-400 leading-[2] font-light mb-8 text-lg">
-                    Na Esmalteria Ray Almeida, não apenas cuidamos das suas unhas, criamos obras de arte que refletem sua personalidade. Nosso atendimento é pautado no luxo discreto e na precisão técnica dos melhores salões europeus.
+            <div data-aos="fade-left" class="order-1 md:order-2">
+                <span class="text-softGold text-[11px] tracking-[0.3em] uppercase mb-2 block">✧ Legado & Sofisticação ✧</span>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6 text-pearlWhite font-light">O Ateliê<br><span class="text-softGold">Ray Almeida</span></h2>
+                <div class="w-16 h-px bg-softGold/60 mb-6"></div>
+                <p class="text-gray-300 leading-relaxed text-base md:text-lg font-light mb-5">
+                    Mais do que uma esmalteria, um santuário de beleza onde cada unha é tratada como uma tela de arte. Com técnicas internacionais e produtos exclusivos, Ray Almeida redefine o conceito de manicure premium em Florianópolis.
                 </p>
-                <ul class="space-y-4 mb-10">
-                    <li class="flex items-center gap-4 text-sm tracking-widest uppercase font-light"><i class="fas fa-check text-roseGold"></i> Materiais de Alta Performance</li>
-                    <li class="flex items-center gap-4 text-sm tracking-widest uppercase font-light"><i class="fas fa-check text-roseGold"></i> Atendimento com Hora Marcada</li>
-                    <li class="flex items-center gap-4 text-sm tracking-widest uppercase font-light"><i class="fas fa-check text-roseGold"></i> Ambiente Privativo e Luxuoso</li>
-                </ul>
+                <p class="text-gray-400 leading-relaxed mb-8 italic border-l-2 border-softGold/40 pl-5">
+                    “Criar unhas que conversam com a personalidade e elevam a autoestima é minha verdadeira paixão.”
+                </p>
+                <div class="flex gap-8 mt-4">
+                    <div><span class="text-softGold text-2xl font-serif">+500</span><p class="text-[10px] uppercase tracking-widest">Clientes Realizadas</p></div>
+                    <div><span class="text-softGold text-2xl font-serif">6+</span><p class="text-[10px] uppercase tracking-widest">Anos de Expertise</p></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES CARDS -->
-    <section id="servicos" class="py-32 px-6 lg:px-20 bg-secondary/30 relative">
+    <!-- SERVIÇOS DE ASSINATURA (cards elegantes com toque de luxo) -->
+    <section id="servicos" class="py-28 px-6 lg:px-20 bg-deepBlack">
         <div class="text-center mb-20" data-aos="fade-up">
-            <h2 class="font-serif text-5xl mb-4 text-rose-gradient uppercase tracking-tighter">Menu de Especialidades</h2>
-            <p class="text-gray-500 uppercase tracking-[0.4em] text-[10px]">O melhor em tecnologia e estética</p>
+            <p class="text-softGold text-xs tracking-[0.3em] uppercase mb-2">Tratamentos Signature</p>
+            <h2 class="font-serif text-5xl md:text-6xl font-light text-pearlWhite">Experiências <span class="text-softGold">Exclusivas</span></h2>
+            <div class="luxury-divider mt-6"></div>
         </div>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            <!-- Serviço 1 -->
-            <div class="glass-card p-10 rounded-3xl text-center group" data-aos="fade-up" data-aos-delay="100">
-                <div class="mb-6 inline-block p-4 rounded-full bg-primary text-roseGold transition-colors group-hover:bg-roseGold group-hover:text-primary">
-                    <i class="fas fa-gem text-2xl"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-4">Fibra de Vidro</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Naturalidade e resistência inigualável com acabamento slim.</p>
-                <p class="text-roseGold font-bold tracking-tighter italic">Premium Choice</p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div data-aos="fade-up" class="glass-luxury p-9 rounded-2xl border border-softGold/10 hover:border-softGold/40 transition-all duration-500 group text-center">
+                <div class="w-12 h-12 mx-auto mb-5 rounded-full bg-softGold/10 flex items-center justify-center"><i class="fas fa-gem text-softGold text-xl"></i></div>
+                <h3 class="font-serif text-3xl mb-3 text-softGold">Fibra de Cristal</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">Alongamento ultra-resistente com acabamento cristalino, ideal para quem busca naturalidade e força.</p>
+                <a href="#agendamento" class="inline-block text-[10px] uppercase tracking-[0.2em] text-softGold border-b border-softGold/50 pb-1 hover:text-pearlWhite">Agendar ritual</a>
             </div>
-            <!-- Serviço 2 -->
-            <div class="glass-card p-10 rounded-3xl text-center group" data-aos="fade-up" data-aos-delay="200">
-                <div class="mb-6 inline-block p-4 rounded-full bg-primary text-roseGold transition-colors group-hover:bg-roseGold group-hover:text-primary">
-                    <i class="fas fa-magic text-2xl"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-4">Blindagem em Gel</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Proteção e brilho duradouro para suas unhas naturais.</p>
-                <p class="text-roseGold font-bold tracking-tighter italic">High Durability</p>
+            <div data-aos="fade-up" data-aos-delay="100" class="glass-luxury p-9 rounded-2xl border border-softGold/10 hover:border-softGold/40 transition-all duration-500 group text-center">
+                <div class="w-12 h-12 mx-auto mb-5 rounded-full bg-softGold/10 flex items-center justify-center"><i class="fas fa-spa text-softGold text-xl"></i></div>
+                <h3 class="font-serif text-3xl mb-3 text-softGold">Geléia Real</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">Unhas em gel com brilho eterno, modelagem perfeita e proteção premium por semanas.</p>
+                <a href="#agendamento" class="inline-block text-[10px] uppercase tracking-[0.2em] text-softGold border-b border-softGold/50 pb-1 hover:text-pearlWhite">Reservar experiência</a>
             </div>
-            <!-- Serviço 3 -->
-            <div class="glass-card p-10 rounded-3xl text-center group" data-aos="fade-up" data-aos-delay="300">
-                <div class="mb-6 inline-block p-4 rounded-full bg-primary text-roseGold transition-colors group-hover:bg-roseGold group-hover:text-primary">
-                    <i class="fas fa-paint-brush text-2xl"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-4">Nail Art Luxo</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Designs exclusivos desenhados à mão para ocasiões especiais.</p>
-                <p class="text-roseGold font-bold tracking-tighter italic">Exclusive Art</p>
-            </div>
-            <!-- Serviço 4 -->
-            <div class="glass-card p-10 rounded-3xl text-center group" data-aos="fade-up" data-aos-delay="400">
-                <div class="mb-6 inline-block p-4 rounded-full bg-primary text-roseGold transition-colors group-hover:bg-roseGold group-hover:text-primary">
-                    <i class="fas fa-spa text-2xl"></i>
-                </div>
-                <h3 class="font-serif text-xl mb-4">Spa Pedicure</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Tratamento completo de renovação e relaxamento podal.</p>
-                <p class="text-roseGold font-bold tracking-tighter italic">Pure Wellness</p>
+            <div data-aos="fade-up" data-aos-delay="200" class="glass-luxury p-9 rounded-2xl border border-softGold/10 hover:border-softGold/40 transition-all duration-500 group text-center">
+                <div class="w-12 h-12 mx-auto mb-5 rounded-full bg-softGold/10 flex items-center justify-center"><i class="fas fa-hand-sparkles text-softGold text-xl"></i></div>
+                <h3 class="font-serif text-3xl mb-3 text-softGold">Manicure Haute Couture</h3>
+                <p class="text-gray-400 text-sm mb-5 leading-relaxed">Cutilagem russa, esfoliação de luxo e esmaltação com marcas internacionais de alto padrão.</p>
+                <a href="#agendamento" class="inline-block text-[10px] uppercase tracking-[0.2em] text-softGold border-b border-softGold/50 pb-1 hover:text-pearlWhite">Vivenciar</a>
             </div>
         </div>
     </section>
 
-    <!-- GALERIA (MASONRY-LIKE) -->
-    <section id="galeria" class="py-32 px-6 lg:px-20 bg-primary">
-        <div class="text-center mb-20">
-            <h2 class="font-serif text-5xl mb-4 text-rose-gradient uppercase">Portfólio</h2>
-            <p class="text-gray-500 uppercase tracking-[0.4em] text-[10px]">A perfeição em cada ângulo</p>
+    <!-- GALERIA REFINADA (swiper + grid responsivo com efeito mais clean) -->
+    <section id="galeria" class="py-28 bg-richDark px-6 lg:px-20">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-5xl md:text-6xl font-light text-pearlWhite mb-3">Portfólio <span class="text-softGold">Íntimo</span></h2>
+            <p class="text-softGold uppercase tracking-[0.2em] text-xs">Resultatos que são obras de arte</p>
         </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-7xl mx-auto" id="gallery-container">
-            <!-- Imagens 1-8.jpg -->
-            <script>
-                for(let i=1; i<=8; i++) {
-                    document.write(`
-                        <div class="relative overflow-hidden rounded-xl aspect-square group cursor-pointer" data-aos="zoom-in">
-                            <img src="imagens/${i}.jpg" class="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition duration-700 group-hover:scale-110" alt="Job ${i}">
-                            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                <i class="fas fa-plus text-white text-2xl"></i>
-                            </div>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
-    </section>
-
-    <!-- INSTAGRAM ESTRUTURADO -->
-    <section class="py-32 px-6 lg:px-20 bg-secondary/20">
-        <div class="max-w-7xl mx-auto text-center">
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <div class="h-[1px] w-12 bg-roseGold/30"></div>
-                <i class="fab fa-instagram text-3xl text-roseGold"></i>
-                <div class="h-[1px] w-12 bg-roseGold/30"></div>
-            </div>
-            <h2 class="font-serif text-4xl mb-4">Siga nossa trajetória</h2>
-            <a href="https://www.instagram.com/rayalmeidanailss/" target="_blank" class="text-roseGold tracking-[0.2em] uppercase text-sm hover:text-white transition">@rayalmeidanailss</a>
-            
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- loop de 1 a 8 com design mais elegante -->
                 <script>
-                    for(let i=1; i<=5; i++) {
-                        document.write(`
-                            <a href="https://www.instagram.com/rayalmeidanailss/" target="_blank" class="block aspect-square overflow-hidden rounded-full border-2 border-roseGold/20 p-2 hover:border-roseGold transition-all duration-500">
-                                <img src="imagens/insta${i}.jpg" class="w-full h-full object-cover rounded-full" alt="Insta ${i}">
-                            </a>
-                        `);
-                    }
+                    (function() {
+                        const imagesCount = 8;
+                        let html = '';
+                        for(let i=1; i<=imagesCount; i++) {
+                            html += `
+                                <div class="relative group overflow-hidden rounded-lg bg-deepBlack shadow-xl h-80 cursor-pointer" data-aos="zoom-in" data-aos-delay="${i*50}">
+                                    <img src="imagens/${i}.jpg" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110 group-hover:rotate-1" alt="Nail art by Ray Almeida ${i}" onerror="this.src='https://placehold.co/400x500?text=Arte+Ray'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-deepBlack/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center pb-6">
+                                        <span class="text-softGold text-[10px] tracking-[.2em] uppercase border-b border-softGold/60">Detalhe exclusivo</span>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        document.write(html);
+                    })();
                 </script>
             </div>
         </div>
     </section>
 
-    <!-- BOOKING SECTION -->
-    <section id="agendamento" class="py-32 px-6 lg:px-20 bg-primary relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-            <img src="logo.png" class="w-full object-contain">
-        </div>
-        
-        <div class="max-w-5xl mx-auto relative z-10 glass-card p-12 md:p-20 rounded-[3rem]">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl mb-4">Solicitar Reserva</h2>
-                <p class="text-gray-400 font-light tracking-widest">Entraremos em contato para confirmar sua experiência.</p>
+    <!-- INSTAGRAM FEED ATUALIZADO: perfil correto @rayalmeidanailss com visual moderno -->
+    <section class="py-24 px-6 lg:px-20 bg-deepBlack relative">
+        <div class="text-center" data-aos="fade-up">
+            <div class="inline-flex items-center gap-3 bg-softGold/10 px-6 py-2 rounded-full mb-5">
+                <i class="fab fa-instagram text-softGold text-2xl"></i>
+                <span class="text-softGold text-xs tracking-widest">CONEXÃO DIRETA</span>
             </div>
+            <h2 class="font-serif text-4xl md:text-5xl mb-3 text-pearlWhite">@rayalmeidanailss</h2>
+            <a href="https://www.instagram.com/rayalmeidanailss/" target="_blank" class="inline-flex items-center gap-2 text-softGold border-b border-softGold/40 pb-1 hover:text-pearlWhite transition text-sm uppercase tracking-wider">Siga e inspire-se <i class="fas fa-arrow-right text-xs"></i></a>
+        </div>
 
-            <form id="bookingForm" class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-6">
-                    <div class="group">
-                        <label class="text-[10px] uppercase tracking-[0.2em] text-roseGold ml-4 mb-2 block">Nome Completo</label>
-                        <input type="text" id="name" required class="w-full bg-primary/40 border border-white/10 rounded-full px-6 py-4 focus:border-roseGold outline-none transition">
-                    </div>
-                    <div class="group">
-                        <label class="text-[10px] uppercase tracking-[0.2em] text-roseGold ml-4 mb-2 block">WhatsApp</label>
-                        <input type="tel" id="whatsapp" required class="w-full bg-primary/40 border border-white/10 rounded-full px-6 py-4 focus:border-roseGold outline-none transition">
-                    </div>
-                </div>
-                <div class="space-y-6">
-                    <div class="group">
-                        <label class="text-[10px] uppercase tracking-[0.2em] text-roseGold ml-4 mb-2 block">Serviço Desejado</label>
-                        <select id="service" required class="w-full bg-primary/40 border border-white/10 rounded-full px-6 py-4 focus:border-roseGold outline-none transition appearance-none text-gray-400">
-                            <option value="">Selecione...</option>
-                            <option>Alongamento em Fibra</option>
-                            <option>Blindagem / Banho de Gel</option>
-                            <option>Manicure & Pedicure Premium</option>
-                            <option>Nail Art Exclusiva</option>
-                        </select>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="group">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-roseGold ml-4 mb-2 block">Data</label>
-                            <input type="date" id="date" required class="w-full bg-primary/40 border border-white/10 rounded-full px-6 py-4 focus:border-roseGold outline-none transition text-gray-400">
-                        </div>
-                        <div class="group">
-                            <label class="text-[10px] uppercase tracking-[0.2em] text-roseGold ml-4 mb-2 block">Hora</label>
-                            <select id="time" required class="w-full bg-primary/40 border border-white/10 rounded-full px-6 py-4 focus:border-roseGold outline-none transition text-gray-400">
-                                <option>08:00</option><option>10:00</option><option>13:00</option><option>15:00</option><option>17:00</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:col-span-2">
-                    <button type="submit" class="btn-luxury w-full py-5 rounded-full uppercase tracking-[0.3em] text-xs shadow-2xl">Confirmar Pré-Agendamento</button>
-                </div>
-            </form>
+        <!-- Grid de imagens do instagram (simuladas com insta1 a insta5, alinhado com feed real) -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-7xl mx-auto mt-14">
+            <script>
+                const instaImages = 5;
+                for(let j=1; j<=instaImages; j++) {
+                    document.write(`
+                        <a href="https://www.instagram.com/rayalmeidanailss/" target="_blank" class="instagram-feed-item block aspect-square overflow-hidden rounded-md border border-softGold/20 shadow-lg group">
+                            <img src="imagens/insta${j}.jpg" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 brightness-90 group-hover:brightness-100" alt="Instagram post Ray Almeida ${j}" onerror="this.src='https://placehold.co/400x400?text=Insta+Premium'">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/30"><i class="fab fa-instagram text-white text-2xl"></i></div>
+                        </a>
+                    `);
+                }
+            </script>
+        </div>
+        <div class="text-center mt-8">
+            <p class="text-gray-500 text-[11px] tracking-wider">Vivencie bastidores e inspirações diárias no nosso perfil oficial ✨</p>
         </div>
     </section>
 
-    <!-- FOOTER ELEGANCE -->
-    <footer class="py-20 px-8 bg-primary border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <img src="logo.png" class="h-16 mb-12" alt="Ray Almeida">
-            
-            <div class="grid md:grid-cols-3 w-full gap-12 text-center mb-16">
-                <div>
-                    <h4 class="text-roseGold uppercase tracking-widest text-xs mb-6">Onde Estamos</h4>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed">Rua Príncipe, 276, Monte Verde<br>Florianópolis - SC</p>
+    <!-- AGENDAMENTO PREMIUM (mais elegante, com salvamento local e sweet) -->
+    <section id="agendamento" class="py-28 px-6 lg:px-20 bg-richDark">
+        <div class="max-w-4xl mx-auto glass-luxury p-8 md:p-12 rounded-2xl border border-softGold/20 shadow-2xl">
+            <h2 class="font-serif text-5xl mb-3 text-center text-pearlWhite font-light">Reserve seu Momento</h2>
+            <p class="text-center text-softGold text-xs uppercase tracking-[0.2em] mb-8">Atendimento exclusivo, vagas limitadas</p>
+            <form id="bookingForm" class="grid md:grid-cols-2 gap-6">
+                <input type="text" id="name" placeholder="Nome completo" required class="bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none transition text-pearlWhite placeholder:text-gray-500">
+                <input type="tel" id="whatsapp" placeholder="WhatsApp (48) 9 9999-9999" required class="bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none transition text-pearlWhite">
+                <select id="service" required class="bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none text-gray-300">
+                    <option value="">Selecione o Serviço Signature</option>
+                    <option value="Fibra de Cristal">💎 Alongamento Fibra de Cristal</option>
+                    <option value="Geléia Real">✨ Unhas em Gel - Geléia Real</option>
+                    <option value="Manicure Haute Couture">🖌️ Manicure & Pedicure Couture</option>
+                </select>
+                <div class="grid grid-cols-2 gap-4">
+                    <input type="date" id="date" required class="bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none text-gray-300">
+                    <select id="time" required class="bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none text-gray-300">
+                        <option value="">Horário</option>
+                        <option>09:00</option><option>11:00</option><option>14:30</option><option>17:00</option><option>19:00</option>
+                    </select>
                 </div>
-                <div>
-                    <h4 class="text-roseGold uppercase tracking-widest text-xs mb-6">Concierge</h4>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed">(48) 98842-1680<br>atendimento@rayalmeida.com</p>
-                </div>
-                <div>
-                    <h4 class="text-roseGold uppercase tracking-widest text-xs mb-6">Horários</h4>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed">Segunda a Sábado<br>08:00 — 19:00</p>
-                </div>
+                <textarea id="obs" placeholder="Algum detalhe especial? (cores, decorações ou ocasião)" class="md:col-span-2 bg-deepBlack/60 border border-gray-700/80 rounded-lg p-4 focus:border-softGold outline-none h-28 text-pearlWhite"></textarea>
+                <button type="submit" class="md:col-span-2 btn-luxury py-5 rounded-full text-deepBlack font-bold uppercase tracking-[0.2em] text-sm transition-all duration-300 shadow-lg">Solicitar Cotação & Reserva</button>
+            </form>
+            <p class="text-center text-gray-500 text-[10px] mt-6 uppercase tracking-wider">* Após envio, Ray Almeida confirmará disponibilidade em até 2h.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER ELEGANTE -->
+    <footer class="py-12 px-6 bg-deepBlack border-t border-softGold/10">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center md:text-left">
+            <div>
+                <img src="logo.png" alt="Ray Almeida" class="h-12 mb-4 mx-auto md:mx-0" onerror="this.src='https://placehold.co/100x40?text=RAY'">
+                <p class="text-gray-500 text-xs tracking-wide">Nail designer de alta performance, localizada em Florianópolis, referência em unhas de luxo.</p>
             </div>
-            
-            <div class="w-full pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-[10px] text-gray-500 uppercase tracking-widest">© 2025 Ray Almeida Nails • Luxury Experience</p>
-                <div class="flex gap-8 text-gray-400">
-                    <a href="https://www.instagram.com/rayalmeidanailss/" class="hover:text-roseGold transition"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-roseGold transition"><i class="fab fa-facebook-f"></i></a>
-                </div>
+            <div>
+                <h4 class="text-softGold text-sm uppercase tracking-wider mb-3">Contato Exclusivo</h4>
+                <p class="text-gray-400 text-xs"><i class="fas fa-map-marker-alt mr-2 text-softGold/70"></i> Rua Príncipe, 276 - Monte Verde, Florianópolis - SC</p>
+                <p class="text-gray-400 text-xs mt-2"><i class="fab fa-whatsapp mr-2 text-softGold/70"></i> (48) 98842-1680</p>
+                <p class="text-gray-400 text-xs mt-2"><i class="fab fa-instagram mr-2 text-softGold/70"></i> @rayalmeidanailss</p>
             </div>
+            <div>
+                <h4 class="text-softGold text-sm uppercase tracking-wider mb-3">Navegação</h4>
+                <ul class="text-xs space-y-1 text-gray-400">
+                    <li><a href="#inicio" class="hover:text-softGold">Início</a></li>
+                    <li><a href="#servicos" class="hover:text-softGold">Serviços</a></li>
+                    <li><a href="#galeria" class="hover:text-softGold">Galeria</a></li>
+                    <li><a href="#agendamento" class="hover:text-softGold">Agendamento</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-10 pt-6 border-t border-gray-800/40">
+            <p class="text-gray-600 text-[9px] uppercase tracking-[0.2em]">© 2025 Esmalteria Ray Almeida — Elegância, sofisticação e perfeição em cada detalhe.</p>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- SCRIPTS ATUALIZADOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-        // Init AOS
-        AOS.init({ duration: 1200, once: true });
+        AOS.init({ duration: 900, once: true, offset: 50 });
 
-        // Preloader
-        window.onload = () => {
-            document.getElementById('preloader').classList.add('opacity-0');
-            setTimeout(() => document.getElementById('preloader').remove(), 1000);
-        };
+        // Partículas refinadas e sutis
+        particlesJS('particles-bg', {
+            "particles": {
+                "number": { "value": 32 },
+                "color": { "value": "#D9B48B" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.2, "random": true },
+                "size": { "value": 2.5, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 0.6, "direction": "none", "random": true, "straight": false }
+            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": false } } }
+        });
 
-        // Navbar Scroll Effect
-        window.onscroll = () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-primary/90', 'backdrop-blur-md', 'py-4', 'shadow-2xl');
-            } else {
-                nav.classList.remove('bg-primary/90', 'backdrop-blur-md', 'py-4', 'shadow-2xl');
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if(menu) {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
             }
-            // Hero Parallax
-            document.getElementById('hero-bg').style.transform = `scale(1.05) translateY(${window.scrollY * 0.1}px)`;
-        };
+        }
 
-        // Form Logic
-        document.getElementById('bookingForm').onsubmit = (e) => {
+        // Sistema de agendamento premium + localStorage
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const data = {
+            const appointment = {
                 id: Date.now(),
-                name: document.getElementById('name').value,
-                whatsapp: document.getElementById('whatsapp').value,
+                name: document.getElementById('name').value.trim(),
+                whatsapp: document.getElementById('whatsapp').value.trim(),
                 service: document.getElementById('service').value,
                 date: document.getElementById('date').value,
                 time: document.getElementById('time').value,
+                obs: document.getElementById('obs').value.trim(),
                 status: 'Pendente'
             };
-            
-            let bookings = JSON.parse(localStorage.getItem('ray_bookings')) || [];
-            bookings.push(data);
-            localStorage.setItem('ray_bookings', JSON.stringify(bookings));
-
+            if(!appointment.name || !appointment.whatsapp || !appointment.service || !appointment.date || !appointment.time) {
+                Swal.fire({ title: 'Atenção', text: 'Por favor, preencha todos os campos obrigatórios.', icon: 'info', background: '#121216', color: '#fff', confirmButtonColor: '#D9B48B' });
+                return;
+            }
+            let bookings = JSON.parse(localStorage.getItem('ray_bookings_premium')) || [];
+            bookings.push(appointment);
+            localStorage.setItem('ray_bookings_premium', JSON.stringify(bookings));
             Swal.fire({
-                title: '<span class="font-serif">Solicitação Recebida</span>',
-                html: '<p class="font-light text-sm">Entraremos em contato via WhatsApp para confirmar seu horário.</p>',
+                title: 'Pedido Enviado com Sucesso!',
+                text: 'Em breve Ray Almeida entrará em contato para confirmar seu horário exclusivo.',
                 icon: 'success',
-                background: '#1C2431',
-                color: '#FFF',
-                confirmButtonColor: '#C99B8A'
+                confirmButtonColor: '#D9B48B',
+                background: '#121216',
+                color: '#F5F0EB',
+                iconColor: '#D9B48B'
             });
-            e.target.reset();
-        };
+            this.reset();
+        });
     </script>
 </body>
 </html>
